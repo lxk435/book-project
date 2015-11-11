@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BookProject.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "My Stats";
+}
+
+<h1> </h1>
+<h1>My Book Stats</h1>
+
+@Html.Action("StatsSummary")
+
+@Html.Action("Stats")
+
+
+<table class="table">
+    <tr>
+        <td>
+            <h2>Your genre pie chart</h2>
+            <img src="@Url.Content("/Images/GenreChart.jpg")"/>
+
+        </td>
+        <td>
+            <h2>Your book timeline</h2>
+            <img src="@Url.Content("/Images/TimelineChart.jpg")"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2>Your read and not read pie chart</h2>
+            <img src="@Url.Content("/Images/ReadChart.jpg")" />
+        </td>
+    </tr>
+</table>
+

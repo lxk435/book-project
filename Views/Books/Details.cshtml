@@ -1,0 +1,91 @@
+﻿@model BookProject.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1><img src="@Url.Content("/Images/book.png")" width="30" /> Details</h1>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Author's first name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorFirstName)
+        </dd>
+
+        <dt>
+            Author's last name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorLastName)
+        </dd>
+
+        <dt>
+            Publication year
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicationYear)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.AuthorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorId)
+        </dd>*@
+
+        <dt>
+            Author's place of birth
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthorPlaceOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            I've read it
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlreadyRead)
+            
+        </dd>
+
+    </dl>
+    @if (Model.CoverImageFile != null)
+    {
+        <img src="@Url.Content(Model.CoverImageFile)" alt="Image" width="300" />
+    }
+    
+    
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("View", "MapView", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

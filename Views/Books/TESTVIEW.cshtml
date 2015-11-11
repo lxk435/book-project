@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script src="/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>*@
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+
+<h2>This is an ajax test</h2>
+
+
+
+@Ajax.ActionLink("Load partial view", "Create", "Authors", new AjaxOptions
+{
+    //JavaScript function executed after successful Ajax request
+    //OnSuccess = "updatePlaceholder",
+    //The "id" attribute of the HTML placeholder
+    UpdateTargetId = "result"
+})
+
+
+
+<div id="result"></div>
+
+@*<script type="text/javascript">
+   function updatePlaceholder(context) {
+        // the HTML output of the partial view
+        var html = context.get_data();
+
+        // the DOM element representing the placeholder
+        var placeholder = context.get_updateTarget();
+
+        // use jQuery to update the placeholder. It will execute any JavaScript statements
+        $(placeholder).html(html);
+
+        // return false to prevent the automatic update of the placeholder
+        return false;
+    }
+</script>*@
+
+
+
+@*$.ajax({
+    url: '@Url.Action("TestPartial", "Books")',
+
+
+    });*@

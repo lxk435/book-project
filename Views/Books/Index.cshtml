@@ -1,0 +1,68 @@
+﻿@model IEnumerable<BookProject.Models.Book>
+
+@{
+    ViewBag.Title = "My Books";
+}
+
+<h1><img src="@Url.Content("/Images/book.png")" width="30" /> My Books</h1>
+
+<p><strong>@Html.ActionLink("View my stats", "MyStatsView")</strong><br/>
+   <strong>@Html.ActionLink("Cover gallery", "ImageGrid")</strong>
+</p>
+
+@*<p><strong>@Html.ActionLink("View chart", "Chart")</strong>
+</p>
+<p><strong>@Html.ActionLink("View timeline", "Timeline")</strong></p>*@
+
+
+<h4>Search by author, title and genre</h4>
+
+<p>@using (Html.BeginForm("Index", "Books", FormMethod.Get)){
+       <p>
+           Author: @Html.DropDownList("author", "All") <br />
+           Title: @Html.TextBox("SearchString") <br/>
+           Genre: @Html.DropDownList("bookGenre", "All") <br />
+           <input type="submit" value="Filter"/>
+       </p>
+        }
+</p>        
+
+ <p><strong>@Html.ActionLink("Add book", "Create")</strong></p>
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.CoverImageFile != null)
+            {
+                <img src="@Url.Content(item.CoverImageFile)" alt="Image" width="200"/>
+            }
+            else
+            {
+                <img src="/Images/DefaultBook.jpg" alt="Image" width="200" />
+            }
+        </td>
+        <td>
+            <strong>@Html.ActionLink((Html.DisplayTextFor(modelItem => item.Title).ToString()).Replace("&#39;", "'"), "Details", new { id = item.Id })</strong>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorFirstName) @Html.DisplayFor(modelItem => item.AuthorLastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+        </td>
+    </tr>
+    
+}
+    <strong>@Html.ActionLink("View your book map", "MapView")</strong>
+
+
+
+
+    
+
+
+
+</table>

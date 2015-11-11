@@ -1,0 +1,44 @@
+﻿@model BookProject.Models.ViewModels.ChartViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Genre Chart";
+}
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Charts</title>
+</head>
+<body>
+<h2>Our Awesome Chart!</h2>
+@Model.Chart.Save("~/Images/Chart", "png")
+    @*<img src="/Images/charttest.png"/>
+</body>
+</html>*@
+
+
+@*<h2>Our Awesome Chart!</h2>
+@Model.Chart.Write(format: "png")
+
+<img src="@Model.Chart.Write(format: "png")"/>*@
+@*@Model.Chart.Write("png")*@
+@*@Model.Chart.Write(format: "png")*@
+
+<h1>Your genre pie chart</h1>
+
+<img src ="@Url.Content("/Images/GenreChart.jpg")"/>
+
+@*<img src="@{
+    new Chart(width: 600, height: 400)
+        .AddTitle("Chart Title")
+        .AddSeries(
+            name: "Employee",
+            xValue: new[] { "Peter", "Andrew", "Julie", "Mary", "Dave" },
+            yValues: new[] { "2", "6", "4", "5", "3" })
+        .Write();
+}"/>*@

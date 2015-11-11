@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BookProject.Models.Book>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @{
+                var img = "/Images/DefaultBook.jpg";
+
+                if (item.CoverImageFile != null)
+                {
+                    img = @Url.Content(item.CoverImageFile);
+                }
+                else
+                {
+                    img = "/Images/DefaultBook.jpg";
+                }
+
+                var i = 0;
+                if (i % 3 == 0)
+                {
+                    Html.Raw("</tr><tr>"); //End old row and start new one
+                }
+                i++;
+            }
+            <img src='@img' width="100" />
+        </td>
+    </tr>
+                }

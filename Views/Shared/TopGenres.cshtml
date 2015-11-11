@@ -1,0 +1,23 @@
+﻿@model BookProject.Models.ViewModels.TopGenresViewModel
+
+<div>
+    <dl class="dl-horizontal">
+
+        @foreach (var item in Model.TopGenresDictionary)
+        {
+            if (item.Value > 1)
+            {
+                <dt>
+                    @item.Key :
+                </dt>
+
+        
+                <dd>
+                    @item.Value books
+                </dd>
+            }
+        }
+    </dl>
+
+</div>
+

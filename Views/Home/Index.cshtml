@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Book Collector";
+}
+
+<div class="jumbotron">
+    <h1>Book Collector <img src="@Url.Content("/Images/book.png")" width="60" /></h1>
+    <p class="lead">Book Collector lets you keep track of all your books, and view them on a map.</p>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2><img src="@Url.Content("/Images/book.png")" width="20"/> Get started
+        </h2>
+        <p>
+            Sign up for an account here
+
+        </p>
+        <p><a class="btn btn-default" href="http://localhost:49777/Account/Register">Learn more &raquo;</a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2><img src="@Url.Content("/Images/book.png")" width="20"/> Start logging your books to see your book map
+        </h2>
+
+
+    </div>
+    <div class="col-md-4">
+        <h2><img src="@Url.Content("/Images/book.png")" width="20"/> Top genres
+        </h2>
+        @Html.Action("TopGenres")
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6">
+        <img src="@Url.Content("/Images/MapImage.jpg")" width="600"/>
+    </div>
+</div>
